@@ -116,11 +116,15 @@ def get_image_info(img):
 if __name__ == '__main__':
     data1 = get_image_info(args['img1'])
     data2 = get_image_info(args['img2'])
-    similarity = color_similarity(data1[4]['color'], data2[4]['color'])
+    similarity1 = color_similarity(data1[4]['color'], data2[4]['color'])
+    similarity2 = color_similarity(data1[3]['color'], data2[3]['color'])
+    similarity3 = color_similarity(data1[2]['color'], data2[2]['color'])
     output = {
         'img1': data1,
         'img2': data2,
-        'similarity_idx': similarity
+        'similarity_idx1': similarity1,
+        'similarity_idx2': similarity2,
+        'similarity_idx3': similarity3
     }
     with open('output.json', 'w') as fp:
         json.dump(output, fp)
